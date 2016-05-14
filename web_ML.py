@@ -33,12 +33,6 @@ for i in range(num):
     nametag.append('Name'+str(i))
 app = Flask(__name__)
 
-
-def prepareDB():
-    recoEngineTest.loadMoviesIntoDBFromFileTest()
-    recoEngineTest.loadUsersIntoDBFromFileTest()
-    #recoEngineTest.loadRatingsIntoDBFromFileTest()
-
 @app.route('/Movies/', methods=['GET','POST'])
 def ML():
     if request.method == 'POST':
@@ -140,10 +134,10 @@ def recommendMovies(Theta):
 
 if __name__ == '__main__':
     #prepareDB()
-    (Theta,Error,Theta_list, Error_list)=optimizeTheta()
-    recommendMovies(Theta)
+    # (Theta,Error,Theta_list, Error_list)=optimizeTheta()
+    # recommendMovies(Theta)
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
 
     #loadRatingsIntoDBFromFileTest()
-    client.close()
+    # client.close()
